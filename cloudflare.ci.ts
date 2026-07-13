@@ -26,8 +26,6 @@ export class CI extends CIWorkflow {
       deps.runner("typecheck", { exec: "npm run 'typecheck'", capture: false })
     ]);
 
-    await step.testForgeRerun({"project":"coffee-shop-demo","runId":"e449e5d5-403c-4875-be9b-2f9ccaced43e"});
-
     const isBranchPush =
       p.trigger === 'push' && !!p.branch && p.branch !== p.defaultBranch;
     if (p.trigger === 'pull_request' || isBranchPush) {
