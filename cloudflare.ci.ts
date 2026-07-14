@@ -16,17 +16,10 @@ export class CI extends CIWorkflow {
       deps.runner("build-storybook", { exec: "npm run 'build-storybook'", capture: false }),
       deps.runner("build:app", { exec: "npm run 'build:app'", capture: false }),
       deps.runner("check", { exec: "npm run 'check'", capture: false }),
-      deps.runner("deploy", { exec: "npm run 'deploy'", capture: false }),
-      deps.runner("dev", { exec: "npm run 'dev'", capture: false }),
-      deps.runner("dev:vite", { exec: "npm run 'dev:vite'", capture: false }),
       deps.runner("lint", { exec: "npm run 'lint'", capture: false }),
       deps.runner("lint:fix", { exec: "npm run 'lint:fix'", capture: false }),
-      deps.runner("preview", { exec: "npm run 'preview'", capture: false }),
-      deps.runner("storybook", { exec: "npm run 'storybook'", capture: false }),
       deps.runner("typecheck", { exec: "npm run 'typecheck'", capture: false })
     ]);
-
-    await step.testForgeRerun({"project":"cafe3","runId":"01daa3c6-e686-41e3-b652-ad4ce60205d8"});
 
     const isBranchPush =
       p.trigger === 'push' && !!p.branch && p.branch !== p.defaultBranch;
